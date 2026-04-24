@@ -1,3 +1,5 @@
+import { ThemeProvider } from "./components/theme-provider";
+import { Navbar } from "./components/navbar";
 import { HeroSection } from "./components/hero-section";
 import { AboutSection } from "./components/about-section";
 import { SkillsSection } from "./components/skills-section";
@@ -10,16 +12,19 @@ import { ContactSection } from "./components/contact-section";
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-white">
-      <HeroSection />
-      <AboutSection />
-      <SkillsSection />
-      <ProjectsSection />
-      <ArchitectureSection />
-      <TrainingSection />
-      <CertificationsSection />
-      <BlogSection />
-      <ContactSection />
-    </div>
+    <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false}>
+      <div className="min-h-screen bg-background text-foreground transition-colors duration-300">
+        <Navbar />
+        <HeroSection />
+        <AboutSection />
+        <SkillsSection />
+        <ProjectsSection />
+        <ArchitectureSection />
+        <TrainingSection />
+        <CertificationsSection />
+        <BlogSection />
+        <ContactSection />
+      </div>
+    </ThemeProvider>
   );
 }
